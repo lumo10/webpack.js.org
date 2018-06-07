@@ -56,6 +56,22 @@ export function cube(x) {
   return x * x * x;
 }
 ```
+You could need to set the development mode to be sure that bundle is not minified:
+
+__webpack.config.js__
+
+``` diff
+const path = require('path');
+
+module.exports = {
++   mode: 'development',
+    entry: './src/index.js',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    }
+};
+```
 
 With that in place, let's update our entry script to utilize one of these new methods and remove `lodash` for simplicity:
 
